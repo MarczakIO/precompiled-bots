@@ -6,10 +6,8 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using System;
-using System.Net;
 using System.Threading;
 using Newtonsoft.Json;
-
 using Microsoft.Bot.Builder.Azure;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
@@ -54,12 +52,7 @@ namespace PrecompiledBot
                                 var newMembers = update.MembersAdded?.Where(t => t.Id != activity.Recipient.Id);
                                 foreach (var newMember in newMembers)
                                 {
-                                    reply.Text = "Welcome";
-                                    if (!string.IsNullOrEmpty(newMember.Name))
-                                    {
-                                        reply.Text += $" {newMember.Name}";
-                                    }
-                                    reply.Text += "!";
+                                    reply.Text = "Welcome to the precompiled bot demo!";
                                     await client.Conversations.ReplyToActivityAsync(reply);
                                 }
                             }

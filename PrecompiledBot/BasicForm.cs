@@ -3,18 +3,18 @@ using Microsoft.Bot.Builder.FormFlow;
 
 namespace PrecompiledBot
 {
-    public enum CarOptions { Convertible = 1, SUV, EV };
-    public enum ColorOptions { Red = 1, White, Blue };
+    public enum MobileOptions { Smartphone = 1, Smartwatch, Laptop, Tablet };
+    public enum ColorOptions { Gray = 1, Gold, White, Silver, Other };
 
     // For more information about this template visit http://aka.ms/azurebots-csharp-form
     [Serializable]
     public class BasicForm
     {
-        [Prompt("Hi! What is your {&}?")]
+        [Prompt("Please type in your {&}")]
         public string Name { get; set; }
 
-        [Prompt("Please select your favorite car type {||}")]
-        public CarOptions Car { get; set; }
+        [Prompt("Please select your favorite mobile device {||}")]
+        public MobileOptions Car { get; set; }
 
         [Prompt("Please select your favorite {&} {||}")]
         public ColorOptions Color { get; set; }
